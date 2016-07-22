@@ -7,7 +7,8 @@ angular.module("doc", [])
         })
 
         $scope.hello = function () {
-
-            console.log($scope.doctors);
+            $http.get("/alldoc/" + $scope.searchTxt).then(function (data) {
+                $scope.doctors = data.data;
+            })
         }
     })
